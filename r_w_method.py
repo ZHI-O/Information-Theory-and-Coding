@@ -11,6 +11,7 @@ class reader:
             You should add the address as varity
         '''
         try:
+            #以二进制方式打开文件
             with open(self.inputname, 'rb') as text:
                 contents = text.read()
             return contents
@@ -22,6 +23,7 @@ class reader:
             You should add the address as varity
         '''
         try:
+            #进行文件写操作
             with open(self.outputname, 'w') as outputfile:
                 pass
         except:
