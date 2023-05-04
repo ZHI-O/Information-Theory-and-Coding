@@ -17,8 +17,6 @@ if __name__ == '__main__':
     arry = arry / stc.sum_value()
     plt.figure()
     plt.plot(arry, '*')
-    plt.show()
-
-    print(type(arry))
+    # plt.show()
 
     
