@@ -1,6 +1,6 @@
 class statistic:
-    def __init__(self, letters="") -> None:
-        self.letters = letters
+    def __init__(self, characters="") -> None:
+        self.characters = characters
 
     def statistic(self):
         """Statistic the letter in letters and draw a histogram
@@ -8,25 +8,19 @@ class statistic:
             and it returns the statistic result as dir,
             meanwhile you can get the descending dict.
         """
-        alphabet = {'a': 0,'b': 0,'c': 0,'d': 0,'e': 0,'f': 0,'g': 0,'h': 0,'i': 0,
-                    'j': 0,'k': 0,'l': 0,'m': 0,'n': 0,'o': 0,'p': 0,'q': 0,'r': 0,
-                    's': 0,'t': 0,'u': 0,'v': 0,'w': 0,'x': 0,'y': 0,'z': 0,' ': 0,
-                    "'": 0,'.': 0,',': 0,';': 0
-                    }
-        for letter in self.letters.lower():
-            if letter in alphabet.keys():
-                alphabet[letter] += 1
-        
-        alphabet_fal = {}
-        for key, value in alphabet.items():
-            if value != 0:
-                alphabet_fal[key] = value
+        dir = {}
 
-        ls = sorted(alphabet_fal.items(), key=lambda x:x[1], reverse=True)
+        for character in self.characters:
+            if character in dir.keys():
+                dir[character] += 1
+            else:
+                dir[character] = 1
 
-        alphabet_fal = dict(ls)
+        ls = sorted(dir.items(), key=lambda x:x[1], reverse=True)
 
-        return alphabet_fal
+        dir_fal = dict(ls)
+
+        return dir_fal
     
     def sum_value(self):
         """Cumulate the number of the signal"""
@@ -36,6 +30,6 @@ class statistic:
             pass
 
 if __name__ == '__main__':
-    a = 'sadfsafdfdsagfsadfasg'
+    a = 'aaaassss'
     stc1 =  statistic(a)
     print(stc1.statistic().items())
