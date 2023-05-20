@@ -51,7 +51,7 @@ class HuffmanTree():
         else:
             return None
         
-def builtHuffmanTree(alist):
+def builtHuffmanTree(alist: dict) -> HuffmanTree:
     hTrees = []
     for (key, val) in alist.items():
         hTrees.append(HuffmanTree(key, val))
@@ -78,7 +78,7 @@ def builtHuffmanTree(alist):
 
     return hTrees[0]    
 
-def preorder(huffmanTree):
+def preorder(huffmanTree: HuffmanTree):
     if huffmanTree:
         if huffmanTree.getSymbol() != None:
             print(f'{huffmanTree.getSymbol()} : {huffmanTree.getCode()}')
