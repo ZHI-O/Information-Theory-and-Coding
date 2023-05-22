@@ -1,3 +1,5 @@
+dir = {}
+
 class HuffmanTree():
     '''创建HuffmanTree
         属性：
@@ -9,6 +11,9 @@ class HuffmanTree():
         self.code = ''
         self.leftChild = None
         self.rightChild = None
+
+    def getCodeLen(self):
+        return len(self.code)
     
     def getSymbol(self):
         return self.symbol
@@ -57,8 +62,8 @@ def builtHuffmanTree(alist: dict) -> HuffmanTree:
         hTrees.append(HuffmanTree(key, val))
     
     while len(hTrees) > 1:
-        t1 = hTrees.pop()
-        t2 = hTrees.pop()
+        t1 = hTrees.pop(0)
+        t2 = hTrees.pop(0)
         t = HuffmanTree(None, t1.getWeight() + t2.getWeight())
         t.setLeftChild(t1)
         t.setRightChild(t2)
@@ -78,17 +83,20 @@ def builtHuffmanTree(alist: dict) -> HuffmanTree:
 
     return hTrees[0]    
 
-def preorder(huffmanTree: HuffmanTree):
+def preorder(huffmanTree: HuffmanTree) -> dict:
     if huffmanTree:
         if huffmanTree.getSymbol() != None:
-            print(f'{huffmanTree.getSymbol()} : {huffmanTree.getCode()}')
+            dir[huffmanTree.getSymbol()] = huffmanTree.getCode()
         preorder(huffmanTree.getLeftChild())
         preorder(huffmanTree.getRightChild())
+    
+    return dir
+    
 
 if __name__ == '__main__':
     from statistic import *
-    a = 'asdnjgldlaossssss'
+    a = 'gdsavdsda'
     stc1 =  statistic(a)
     huffmanTree = builtHuffmanTree(stc1.statistic())
     huffmanTree.coding()
-    preorder(huffmanTree)
+    print(preorder(huffmanTree).items())
