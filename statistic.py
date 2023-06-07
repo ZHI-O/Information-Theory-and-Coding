@@ -20,7 +20,7 @@ class statistic:
                 dir[character] = 1
 
         #按照值进行排序
-        ls = sorted(dir.items(), key=lambda x:x[1], reverse=True)
+        ls = sorted(dir.items(), key=lambda x:x[1])
 
         dir_fal = dict(ls)
 
